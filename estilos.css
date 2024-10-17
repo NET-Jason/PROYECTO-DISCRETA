@@ -1,0 +1,36 @@
+.tree {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+    flex-direction: column; /* Cambiar a columna para apilar nodos */
+}
+
+.node {
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+    text-align: center;
+    position: relative;
+}
+
+.node::before, .node::after {
+    content: '';
+    position: absolute;
+    top: -20px;
+    width: 1px;
+    height: 20px;
+    background: #000;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.node::after {
+    left: 0;
+    transform: translateX(-100%);
+}
+
+.node-container {
+    display: flex;
+    justify-content: space-around; /* Distribuir nodos hijos */
+}
