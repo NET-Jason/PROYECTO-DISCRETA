@@ -2,16 +2,23 @@
     display: flex;
     justify-content: center;
     margin: 20px;
-    flex-direction: column; /* Cambiar a columna para apilar nodos */
+    flex-direction: column;
 }
 
 .node {
     border: 1px solid #000;
-    border-radius: 5px;
+    border-radius: 50%; /* Cambiar a forma circular */
     padding: 10px;
     margin: 5px;
     text-align: center;
     position: relative;
+    transition: transform 0.2s;
+    width: 50px; /* Ancho fijo para los nodos */
+    height: 50px; /* Alto fijo para los nodos */
+}
+
+.node:hover {
+    transform: scale(1.05);
 }
 
 .node::before, .node::after {
@@ -32,5 +39,16 @@
 
 .node-container {
     display: flex;
-    justify-content: space-around; /* Distribuir nodos hijos */
+    justify-content: space-around;
+    position: relative; /* Relativo para que los hijos se alineen correctamente */
+}
+
+.node-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 20px;
+    border-top: 1px solid #000; /* Línea superior */
+    left: 0;
 }
